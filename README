@@ -1,0 +1,16 @@
+Years back, when I started playing with the Mandelbrot set, it took hours for my computer to generate a graphic (320x240 && 256 colours, no less). Not as many years back, when I started playing with this monstrosity I call WallFArt, it took minutes to render an image. Now I'm clickin' and slidin' all around willy-nilly 'n crazy-like,.. will wonders never cease?
+
+-- Linux: 
+
+Requirements: gtk+-2.0 development ("apt-get install gtk2.0-dev" on a debianish system)
+
+If configure doesn't work for some reason, cd into the src directory and run " make -f makefile.gmake clean && make -f makefile.gmake". A 'wallfart' binary will be built in the src directory. Might I recommend /usr/local/bin || ~/bin as an appropriate installation directory? 
+
+-- Windows:
+
+I used precompiled gtk+-2.0 libraries from https://gtk-win.sourceforge.net and a MinGW development environment from https://osdn.net/projects/mingw/.
+
+First I got the MinGW stuff set up so I had gcc/make/autotools etc working. Then I copied the extracted gtk binaries to /usr/local from the MinGW bash prompt. Then things worked just like Linux... neat.
+
+A 32bit Windows binary is available at the time of this writing. I packaged it using NSIS (https://nsis.sourceforge.net) on a Windows 7 machine.
+

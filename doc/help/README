@@ -1,0 +1,14 @@
+
+ImageMagick provides a most wonderful collection of graphic manipulation tools. For example, to change an image format:
+
+	> convert image.png image.xpm
+
+Or, to resize an image:
+
+	> convert -resize 256x256 big.png small.png
+
+Wow! Can it get any easier? - Yes it can:
+
+	> convert -resize 256x256 big.png aWindowsIcon.ico
+
+Resize and convert all in one step. Isn't that nice! 

@@ -1,0 +1,7 @@
+#!/bin/sh
+echo 
+echo "./configure didn't work? Wow, that's a bummer... let's give this a whirl then..."
+cd src && make -makefile.gmake clean && make -f makefile.gmake && strip wallfart
+echo
+echo "Now, provided that worked, you should have an executable"
+echo

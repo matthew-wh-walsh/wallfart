@@ -1,0 +1,77 @@
+##
+## a simple gnu make makefile for WallFArt
+##  
+##
+
+SHELL = /bin/sh
+RM = /bin/rm -rf
+STRIP = `which strip`
+CC = gcc
+CFLAGS = -O2 -I..
+GTK_CFLAGS = `pkg-config --cflags gtk+-2.0`
+CFLAGS += $(GTK_CFLAGS)
+
+LIBS =
+GTK_LIBS = `pkg-config --libs gtk+-2.0`
+LIBS += $(GTK_LIBS)
+
+#
+#wallfart: clean all
+
+all: wallfart.o wallfart_data.o wallfart_help_content.o wallfart_image.o \
+	wallfart_image_marshaller.o wallfart_wallpaper.o
+	$(CC) -o wallfart *.o  $(LIBS)
+
+.SUFFIXES:
+.SUFFIXES: .c .o
+
+
+wallfart_data.o: wallfart_data.c wallfart_data.h wallfart_colour.h \
+	wallfart_rgb_ctables.h wallfart_types.h wallfart_complex.h
+	$(CC) -I. $(CFLAGS) -c $< -o $@
+
+wallfart_image.o: wallfart_image.c wallfart_types.h wallfart_image.h \
+	wallfart_image_marshaller.h wallfart_image_marshaller.c
+	$(CC) -I. $(CFLAGS) -c $< -o $@
+
+wallfart_help_content.o: wallfart_help_content.c wallfart_help_content.h \
+	wallfart_help_graphic.xpm
+	$(CC) -I. $(CFLAGS) -c $< -o $@
+
+wallfart_wallpaper.o: wallfart_wallpaper.c wallfart_wallpaper.h wallfart_image.h
+	$(CC) -I. $(CFLAGS) -c $< -o $@
+
+wallfart_image_marshaller.o: wallfart_image_marshaller.c wallfart_image.h \
+	wallfart_image_marshaller.h wallfart_image_marshaller.list
+	$(CC) -I. $(CFLAGS) -c $< -o $@
+
+clean:
+	$(RM) *.o wallfart wallfart.exe *.*~ ./.deps ./.w*~
+##
+##wallfart_image_marshaller.c: wallfart_image_marshaller.list
+##	glib-genmarshal --body wallfart_image_marshaller.list > $@
+##
+##wallfart_image_marshaller.c: wallfart_image_marshaller.list
+##	glib-genmarshal --header wallfart_image_marshaller.list > $@
+##
+## interface files:
+#wallfart.c
+#wallfart_help_content.h
+##wallfart_help_content.c
+#wallfart_wallpaper.h
+##wallfart_wallpaper.c
+ 
+## plain ol' c core:
+#wallfart_data.c
+#wallfart_colour.h
+#wallfart_complex.h
+#wallfart_data.h
+#wallfart_rgb_ctables.h
+#wallfart_types.h
+
+## gtk widget: 'WallfartImage'
+##wallfart_image.c
+#wallfart_image.h
+##wallfart_image_marshaller.c
+#wallfart_image_marshaller.h
+##

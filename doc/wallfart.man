@@ -1,0 +1,18 @@
+.\" to view: nroff -man manpage.whatever
+.TH wallfart "6" "May 2018" "wallfart 0.3.7" "Games"
+.SH NAME
+WallFArt \- keep clicking until you capture an aesthetic that pleases you then apply it as your desktop wallpaper
+.SH SYNOPSIS
+.B wallfart 
+.SH DESCRIPTION
+WallFArt is a simple procrastination tool^H^Hy that generates WDCs (WallFArt Data Cores ;) and randomly colours them in. The user can at anytime change colour schemes or generate a new WDC or apply said coloured-in WDC as wallpaper. Essentially, wallfart is an interactive tool with which you and your computer co-create 'Art'; 'Fractal Art'; 'Wallpaper Fractal Art': 'WallFArt'.
+.SH OPTIONS
+.TP
+.B none 
+.P
+This program accepts no options. 
+.SH AUTHORS
+.B WallFArt was created by Matthew W.H. Walsh <matthew.sonoflore at gmail.com> who likes to point out that wallfart data is, ''peudo-random baby''.
+.SH SEE ALSO
+.B There is nothing else to see or do: It is finished.
+.\".P
